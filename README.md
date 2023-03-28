@@ -47,5 +47,6 @@ En terme de technologie vous êtes libre de choix, il vous conseil la librairie 
 
 ## Merise
 
-<img width="1145" alt="Capture d’écran 2023-03-27 à 20 00 59" src="https://user-images.githubusercontent.com/112149608/227997568-0c7c031a-1aed-4ac5-bae6-c561dba27319.png">
+![modele_kanban](https://user-images.githubusercontent.com/112149608/228159336-50b90139-cc7c-4ac9-ae90-dd0dcc542acd.png)
+
 
