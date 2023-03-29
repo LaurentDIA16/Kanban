@@ -13,7 +13,7 @@ class Item(models.Model):
     id_item = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100, null =False, blank=False)
     position = models.IntegerField(null=False)
-    id_board = models.ForeignKey("board", models.DO_NOTHING, db_column='id_board')
+    id_board = models.ForeignKey(Board, on_delete=models.DO_NOTHING, related_name='items')
 
     def __str__(self):
         return self.title
