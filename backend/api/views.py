@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 
-from rest_framework.decorators import action
+from rest_framework import status
 from rest_framework.response import Response
 
 from .serializers import BoardSerializer, ItemSerializer
@@ -9,26 +9,50 @@ from .serializers import BoardSerializer, ItemSerializer
 from .models import Board, Item
 
 from rest_framework import viewsets
+from rest_framework.viewsets import ModelViewSet
 
 
+# class ReadUpdateViewSet(ModelViewSet):
+#     http_method_names = ["get", "post", "delete"]
 
 class boardViewSet(viewsets.ModelViewSet):
     serializer_class = BoardSerializer
+    http_method_names = ["get", "post", "delete"]
 
     def get_queryset(self):
         return Board.objects.all()
+
+    def update(self, request, *args, **kwargs):
+        board = self.get_object()
+        serializer = self.get_serializer(board, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class itemViewSet(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
+    http_method_names = ["get", "post", "delete"]
 
     def get_queryset(self):
         return Item.objects.all()
-    
-    # @action(detail=True, methods=["post"])
-    # def board(self, request, pk):
-    #     data = self.get_object().board(request, pk)
 
-    #     return Response(data)
+    def get_queryset(self):
+        board_id = self.request.query_params.get('board', None)
+        if board_id is not None:
+            return Item.objects.filter(board__id_board=board_id)
+        return Item.objects.all()
+
+    
+
+
+    
+# @action(detail=True, methods=["post"])
+# def board(self, request, pk):
+#     data = self.get_object().board(request, pk)
+
+#     return Response(data)
 
 
 # class boardViewSet(viewsets.ModelViewSet):
