@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +29,38 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Allow request between the frontend and the backend
+CORS_ALLOWED_ORIGINS =[ #add
+    'http://localhost:8000',
+    'http://localhost:8000',
+
+]
+
+CORS_ALLOWED_CREDENTIALS = True #add
+
+CORS_ORIGIN_ALLOW_ALL = True #add
+
+CORS_ALLOW_CREDENTIALS = True #add
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "POST",
+]
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,11 +74,16 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
 
     'rest_framework',
+
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    "corsheaders.middleware.CorsMiddleware",
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -127,3 +165,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [os.path.join(os.path.dirname(BASE_DIR), 'frontend', 'static')]
