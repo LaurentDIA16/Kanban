@@ -1,46 +1,48 @@
-const draggables = document.querySelectorAll(".task");
-const droppables = document.querySelectorAll(".swim-lane");
+const draggables = document.querySelectorAll(".item");
+const droppables = document.querySelectorAll(".item-list");
+console.log(draggables);
 
-draggables.forEach((task) => {
-  task.addEventListener("dragstart", () => {
-    task.classList.add("is-dragging");
-  });
-  task.addEventListener("dragend", () => {
-    task.classList.remove("is-dragging");
+draggables.forEach((item) => {
+  item.addEventListener("dragstart", () => {
+    item.classList.add("is-dragging");
   });
 });
+//   item.addEventListener("dragend", () => {
+//     item.classList.remove("is-dragging");
+//   });
+// });
 
-droppables.forEach((zone) => {
-  zone.addEventListener("dragover", (e) => {
-    e.preventDefault();
+// droppables.forEach((zone) => {
+//   zone.addEventListener("dragover", (e) => {
+//     e.preventDefault();
 
-    const bottomTask = insertAboveTask(zone, e.clientY);
-    const curTask = document.querySelector(".is-dragging");
+//     const bottomItem = insertAboveItem(zone, e.clientY);
+//     const curItem = document.querySelector(".is-dragging");
 
-    if (!bottomTask) {
-      zone.appendChild(curTask);
-    } else {
-      zone.insertBefore(curTask, bottomTask);
-    }
-  });
-});
+//     if (!bottomItem) {
+//       zone.appendChild(curItem);
+//     } else {
+//       zone.insertBefore(curItem, bottomItem);
+//     }
+//   });
+// });
 
-const insertAboveTask = (zone, mouseY) => {
-  const els = zone.querySelectorAll(".task:not(.is-dragging)");
+// const insertAboveItem = (zone, mouseY) => {
+//   const els = zone.querySelectorAll(".item:not(.is-dragging)");
 
-  let closestTask = null;
-  let closestOffset = Number.NEGATIVE_INFINITY;
+//   let closestItem = null;
+//   let closestOffset = Number.NEGATIVE_INFINITY;
 
-  els.forEach((task) => {
-    const { top } = task.getBoundingClientRect();
+//   els.forEach((item) => {
+//     const { top } = item.getBoundingClientRect();
 
-    const offset = mouseY - top;
+//     const offset = mouseY - top;
 
-    if (offset < 0 && offset > closestOffset) {
-      closestOffset = offset;
-      closestTask = task;
-    }
-  });
+//     if (offset < 0 && offset > closestOffset) {
+//       closestOffset = offset;
+//       closestItem = item;
+//     }
+//   });
 
-  return closestTask;
-};
+//   return closestItem;
+// };
