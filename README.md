@@ -23,7 +23,6 @@ En terme de technologie vous êtes libre de choix, il vous conseil la librairie 
 
 ## Définir les fonctionnalités
 
-- Ajout d’un tableau (qui va contenir les colonnes et les tâches)
 - Gérer les colonnes
     - Ajout d'une colonne
     - Éditer le titre de la colonne
@@ -42,11 +41,24 @@ En terme de technologie vous êtes libre de choix, il vous conseil la librairie 
   javascript
   Django
   Django Rest Framework
-  jkanban
   postgresql
+
+  * pour la prochaine version
+  Tailwind
+  Jkanban
 
 ## Merise
 
 ![modele_kanban](https://user-images.githubusercontent.com/112149608/228159336-50b90139-cc7c-4ac9-ae90-dd0dcc542acd.png)
 
+## Architecture
 
+Backend
+  Django
+  Django Rest Framework
+  postgresql
+  
+Frontend
+  html
+  css
+  javascript
