@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from .models import Board, Item
 
+
 class ItemSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Item
-        fields = ('id_item', 'title', 'position')
+        fields = ('id_item', 'title', 'position', 'board')
 
 class BoardSerializer(serializers.ModelSerializer):
     items = ItemSerializer(many=True, read_only=True)
