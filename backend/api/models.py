@@ -6,6 +6,9 @@ class Board(models.Model):
     title = models.CharField(max_length=50, null =False, blank=False)
     position = models.IntegerField(null=False)
 
+    class Meta:
+        ordering = ['position']
+
     def __str__(self):
         # return self.title
         return str(self.id_board)
