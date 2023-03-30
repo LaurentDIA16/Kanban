@@ -1,10 +1,12 @@
 const API_URL = "http://localhost:8000/api/";
 
+// Récupérer les tableaux depuis l'API
 async function getBoards() {
     const response = await fetch(API_URL + "boards/");
     return response.json();
   }
 
+// Créer un tableau
 async function createBoard(title, position) {
   const response = await fetch(API_URL + "boards/", {
     method: "POST",
@@ -17,9 +19,10 @@ async function createBoard(title, position) {
   return response.json();
 }
 
+//Mettre à jour un tableau
 async function updateBoard(id_board, title) {
   const response = await fetch(API_URL + "boards/" + id_board + "/", {
-    method: "POST",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
@@ -29,6 +32,7 @@ async function updateBoard(id_board, title) {
   return response.json();
 }
 
+//Supprimer un tableau
 async function deleteBoard(id_board) {
   const response = await fetch(API_URL + "boards/" + id_board + "/", {
     method: "DELETE",
@@ -37,32 +41,39 @@ async function deleteBoard(id_board) {
   return response.status;
 }
 
-// async function deleteBoard(id) {
-//   const response = await fetch(API_URL + "boards/" + id + "/", {
-//     method: "DELETE",
-//   });
-
-//   return response.status === 204;
-// }
-
+// Créer un item
 async function createItem(title, position, board) {
-    const response = await fetch(API_URL + "items/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ title, position, board: board }),
-    });
-  
-    return response.json();
-  }
+  const response = await fetch(API_URL + "items/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title, position, board: board }),
+  });
 
-  async function getItemsByBoard(board) {
-    const response = await fetch(API_URL + `items/?board=${board}`);
-    return response.json();
-  }
-  
+  return response.json();
+}
 
+// Récupérer les items d'un tableau
+async function getItemsByBoard(board) {
+  const response = await fetch(API_URL + `items/?board=${board}`);
+  return response.json();
+}
+
+//Mettre à jour un item
+async function updateItem(id_item, title, id_board) {
+  const response = await fetch(API_URL + "items/" + id_item + "/", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title, id_board }),
+  });
+
+  return response.json();
+}
+
+// Supprimer un item
 async function deleteItem(id) {
   const response = await fetch(API_URL + "items/" + id + "/", {
     method: "DELETE",
@@ -71,4 +82,5 @@ async function deleteItem(id) {
   return response.status === 204;
 }
 
-export { createBoard, getBoards, updateBoard, deleteBoard, createItem, getItemsByBoard, deleteItem }; //getItems
+// Étendre les fonctions à un autre fichier js
+export { createBoard, getBoards, updateBoard, deleteBoard, createItem, getItemsByBoard, updateItem, deleteItem }; //getItems
