@@ -26,14 +26,14 @@ En terme de technologie vous êtes libre de choix, il vous conseil la librairie 
 - Gérer les colonnes
 - Ajout d'une colonne
 - Éditer le titre de la colonne
-    Extra
-    - Supprimer une colonne
+    . Extra:
+        - Supprimer une colonne
 - Gérer les taches
 - Ajout d'une tache
 - Éditer le titre de la tache
 - Déplacer une tache d’une colonne à une autre
-    Extra
-    - Supprimer une tache
+    . Extra:
+        - Supprimer une tache
     
 ## Liste des technologies
 
