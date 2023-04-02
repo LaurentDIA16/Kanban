@@ -42,10 +42,11 @@ En terme de technologie vous êtes libre de choix, il vous conseil la librairie 
   Django
   Django Rest Framework
   postgresql
+  Jkanban
 
   * pour la prochaine version
   Tailwind
-  Jkanban
+
 
 ## Merise
 
@@ -62,3 +63,4 @@ Frontend
   html
   css
   javascript
+  Jkanban
