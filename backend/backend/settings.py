@@ -29,12 +29,15 @@ SECRET_KEY = 'django-insecure-7@3&5pf8b+tt)pwoi76x9qe)iy-whl3d%$r5uv-f)6s6oq#)pi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['simplon-kanban.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Allow request between the frontend and the backend
 CORS_ALLOWED_ORIGINS =[ #add
     'https://simplon-kanban.herokuapp.com/',
+    'https://simplon-kanban.herokuapp.com/api/',
+    'https://simplon-kanban.herokuapp.com/api/boards/',
+    'https://simplon-kanban.herokuapp.com/api/items/',
 ]
 
 CORS_ALLOWED_CREDENTIALS = True #add
@@ -84,6 +87,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
 
     "corsheaders.middleware.CorsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -177,10 +181,13 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
-STATICFILES_DIRS = [os.path.join(os.path.dirname(BASE_DIR), 'frontend', 'static')]
+# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
+# STATICFILES_DIRS = [os.path.join(os.path.dirname(BASE_DIR), 'frontend', 'static')]
 
-
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Définissez les variables d'environnement de Django-Heroku
 django_on_heroku.settings(locals())
