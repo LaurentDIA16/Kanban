@@ -191,3 +191,5 @@ STATICFILES_DIRS = [
 
 # Définissez les variables d'environnement de Django-Heroku
 django_on_heroku.settings(locals())
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
