@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 class Board(models.Model):
     id_board = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=50, null =False, blank=False)
-    position = models.IntegerField(null=False)
+    title = models.CharField(max_length=20, null =False, blank=False)
+    position = models.IntegerField()
 
     class Meta:
         ordering = ['position']
@@ -15,8 +15,8 @@ class Board(models.Model):
 
 class Item(models.Model):
     id_item = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=100, null =False, blank=False)
-    position = models.IntegerField(null=False)
+    title = models.CharField(max_length=40, null =False, blank=False)
+    position = models.IntegerField()
     board = models.ForeignKey(Board, on_delete=models.DO_NOTHING, related_name='items')
 
     def __str__(self):
