@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 CORS_ALLOWED_ORIGINS =[ #add
     'http://localhost:8000',
     'http://localhost:8000',
-
 ]
 
 CORS_ALLOWED_CREDENTIALS = True #add
@@ -46,7 +45,7 @@ CORS_ALLOW_METHODS = [
     "DELETE",
     "GET",
     "POST",
-    "PUT",
+    "PATCH",
 ]
 
 CORS_ALLOW_HEADERS = [
@@ -60,7 +59,6 @@ CORS_ALLOW_HEADERS = [
     "x-csrftoken",
     "x-requested-with",
 ]
-
 
 # Application definition
 
