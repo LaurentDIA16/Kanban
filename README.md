@@ -24,15 +24,16 @@ En terme de technologie vous êtes libre de choix, il vous conseil la librairie 
 ## Définir les fonctionnalités
 
 - Gérer les colonnes
-    - Ajout d'une colonne
-    - Éditer le titre de la colonne
-    - Supprimer une colonne
-    - Déplacer une colonne
+- Ajout d'une colonne
+- Éditer le titre de la colonne
+    . Extra:
+        - Supprimer une colonne
 - Gérer les taches
-    - Ajout d'une tache
-    - Éditer le titre de la tache
-    - Supprimer une tache
-    - Déplacer une tache d’une colonne à une autre
+- Ajout d'une tache
+- Éditer le titre de la tache
+- Déplacer une tache d’une colonne à une autre
+    . Extra:
+        - Supprimer une tache
     
 ## Liste des technologies
 
@@ -48,9 +49,10 @@ En terme de technologie vous êtes libre de choix, il vous conseil la librairie 
   Tailwind
 
 
-## Merise
+## Base de données
 
-![modele_kanban](https://user-images.githubusercontent.com/112149608/228159336-50b90139-cc7c-4ac9-ae90-dd0dcc542acd.png)
+<img width="486" alt="Capture d’écran 2023-03-31 à 08 10 06" src="https://user-images.githubusercontent.com/112149608/229020790-fd8f524a-db55-4a83-b487-91cdb595bdf4.png">
+
 
 ## Architecture
 
