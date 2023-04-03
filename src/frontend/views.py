@@ -1,7 +1,8 @@
 from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render
+from django.conf import settings
 
 def index(request):
-    return render(request, 'frontend/index.html')
+    context = {
+        'api_url': settings.API_URL
+    }
+    return render(request, 'frontend/index.html', context)
