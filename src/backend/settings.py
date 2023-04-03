@@ -27,17 +27,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7@3&5pf8b+tt)pwoi76x9qe)iy-whl3d%$r5uv-f)6s6oq#)pi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
 
 # Allow request between the frontend and the backend
 CORS_ALLOWED_ORIGINS =[ #add
-    'https://simplon-kanban.herokuapp.com/',
-    'https://simplon-kanban.herokuapp.com/api/',
-    'https://simplon-kanban.herokuapp.com/api/boards/',
-    'https://simplon-kanban.herokuapp.com/api/items/',
+    # 'http://127.0.0.1:8000/'
+    # 'https://simplon-kanban.herokuapp.com/',
+    # 'https://simplon-kanban.herokuapp.com/api/',
+    # 'https://simplon-kanban.herokuapp.com/api/boards/',
+    # 'https://simplon-kanban.herokuapp.com/api/items/',
 ]
 
 CORS_ALLOWED_CREDENTIALS = True #add
@@ -80,6 +81,8 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'corsheaders',
+
+    'frontend',
 ]
 
 MIDDLEWARE = [

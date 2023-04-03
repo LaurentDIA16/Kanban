@@ -3,7 +3,8 @@ from django.urls import path, include
 
 from rest_framework.routers import DefaultRouter
 
-from api.views import boardViewSet, itemViewSet, index
+from api.views import boardViewSet, itemViewSet
+from frontend.views import index
 
 router = DefaultRouter()
 
