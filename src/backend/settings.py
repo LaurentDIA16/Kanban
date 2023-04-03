@@ -123,25 +123,25 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "devj9g7ah7svl",
-        "USER": "hvqbzsugsexdbd",
-        "PASSWORD": "40c3d8b49dfaf6943b6bbccc00179dad62a3c130e3f1d725609064c0848d56cc",
-        "HOST": "ec2-34-242-154-118.eu-west-1.compute.amazonaws.com",
-        "PORT": "5432"
-    }
-}
-
 # DATABASES = {
 #     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "DB_Kanban",
-#         "USER": "postgres",
-#         "PASSWORD": "0000",
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "devj9g7ah7svl",
+#         "USER": "hvqbzsugsexdbd",
+#         "PASSWORD": "40c3d8b49dfaf6943b6bbccc00179dad62a3c130e3f1d725609064c0848d56cc",
+#         "HOST": "ec2-34-242-154-118.eu-west-1.compute.amazonaws.com",
+#         "PORT": "5432"
 #     }
 # }
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "DB_Kanban",
+        "USER": "postgres",
+        "PASSWORD": "0000",
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
