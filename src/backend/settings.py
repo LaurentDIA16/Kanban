@@ -33,13 +33,11 @@ ALLOWED_HOSTS = ['*']
 
 
 # Allow request between the frontend and the backend
-CORS_ALLOWED_ORIGINS =[ #add
-    # 'http://127.0.0.1:8000/'
-    # 'https://simplon-kanban.herokuapp.com/',
-    # 'https://simplon-kanban.herokuapp.com/api/',
-    # 'https://simplon-kanban.herokuapp.com/api/boards/',
-    # 'https://simplon-kanban.herokuapp.com/api/items/',
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:8000',
+    'https://simplon-kanban.herokuapp.com',
 ]
+
 
 CORS_ALLOWED_CREDENTIALS = True #add
 
@@ -123,25 +121,25 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": "devj9g7ah7svl",
-#         "USER": "hvqbzsugsexdbd",
-#         "PASSWORD": "40c3d8b49dfaf6943b6bbccc00179dad62a3c130e3f1d725609064c0848d56cc",
-#         "HOST": "ec2-34-242-154-118.eu-west-1.compute.amazonaws.com",
-#         "PORT": "5432"
-#     }
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "DB_Kanban",
-        "USER": "postgres",
-        "PASSWORD": "0000",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Heroku: Update database configuration from $DATABASE_URL
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "DB_Kanban",
+#         "USER": "postgres",
+#         "PASSWORD": "0000",
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -177,7 +175,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -187,7 +185,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
 # STATICFILES_DIRS = [os.path.join(os.path.dirname(BASE_DIR), 'frontend', 'static')]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
@@ -196,3 +194,6 @@ STATICFILES_DIRS = [
 django_on_heroku.settings(locals())
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Définir une variable API pour que ce soit urilisable en local ou sur Heroku
+API_URL = os.environ.get('API_URL', 'http://127.0.0.1:8000/api/')
