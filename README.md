@@ -66,3 +66,19 @@ Frontend
   css
   javascript
   Jkanban
+
+Déploiement
+  Heroku
+
+## Fonctionnement du site (au 3/04/2023)
+
+Ce qui fonctionne:
+  - On peut créer un board (action sur le bouton Add "Default" board)
+  - On peut éditer le titre du board (action sur le titre)
+  - On peut déplacer un board de la droite vers la gauche et il garde sa position (enregistrement de la position dans la base de donnée)
+  - On peut créer un item (action sur le bouton Add New Card) qui va s'enregistrer dans la base de donnée
+
+Ce qui ne fonctionne pas... encore:
+ - L'affichage des items créés dans le board
+ - Éditer le titre d'un item
+ - Le déplacement d'un item par rapport à un autre item dans son board ou vers un autre board
