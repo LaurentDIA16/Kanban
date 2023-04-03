@@ -3,10 +3,6 @@ from rest_framework import viewsets
 
 from .models import Board, Item
 
-from django.shortcuts import render
-
-def index(request):
-    return render(request, './frontend/templates/index.html')
 
 class boardViewSet(viewsets.ModelViewSet):
     serializer_class = BoardSerializer
