@@ -82,4 +82,3 @@ Ce qui ne fonctionne pas... encore:
  - L'affichage des items créés dans le board
  - Éditer le titre d'un item
  - Le déplacement d'un item par rapport à un autre item dans son board ou vers un autre board
- - Le déploiement sur un hébergeur
