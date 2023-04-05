@@ -37,17 +37,13 @@ En terme de technologie vous êtes libre de choix, il vous conseil la librairie 
     
 ## Liste des technologies
 
-  html
-  css
-  javascript
-  Django
-  Django Rest Framework
-  postgresql
-  Jkanban
-
-  * pour la prochaine version
-  Tailwind
-
+- html
+- css
+- javascript
+- Django
+- Django Rest Framework
+- postgresql
+- Jkanban
 
 ## Base de données
 
@@ -56,26 +52,26 @@ En terme de technologie vous êtes libre de choix, il vous conseil la librairie 
 
 ## Architecture
 
-Backend
-  Django
-  Django Rest Framework
-  postgresql
+. Backend:
+ - Django
+ - Django Rest Framework
+ - postgresql
   
-Frontend
-  html
-  css
-  javascript
-  Jkanban
+. Frontend:
+ - html
+ - css
+ - javascript
+ - Jkanban
 
-Déploiement
-  Heroku
+. Déploiement:
+ - Heroku -> https://simplon-kanban.herokuapp.com/
 
 ## Fonctionnement du site (au 3/04/2023)
 
 Ce qui fonctionne:
   - On peut créer un board (action sur le bouton Add "Default" board)
   - On peut éditer le titre du board (action sur le titre)
-  - On peut déplacer un board de la droite vers la gauche et il garde sa position (enregistrement de la position dans la base de donnée)
+  - On peut déplacer un board de la droite vers la gauche l'enregistrement de la position dans la base de donnée se fait mais encore un soucis de calcul de position
   - On peut créer un item (action sur le bouton Add New Card) qui va s'enregistrer dans la base de donnée
 
 Ce qui ne fonctionne pas... encore:
